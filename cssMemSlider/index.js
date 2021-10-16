@@ -1,9 +1,9 @@
-const imagesWrapper = document.querySelector(".image-wrapper");
-const images = document.getElementsByClassName("image");
+const imagesWrapper = document.querySelector('.image-wrapper');
+const images = document.getElementsByClassName('image');
 const width = images[0].clientWidth + 25; //25 is gap taken from .slider
-const texts = document.querySelectorAll("text");
-const buttons = document.querySelectorAll(".button");
-const circles = document.querySelectorAll(".circle");
+const texts = document.querySelectorAll('.text');
+const buttons = document.querySelectorAll('.button');
+const circles = document.querySelectorAll('.circle');
 let counter = 0;
 let isEnabled = true;
 
@@ -17,26 +17,28 @@ const slide = (e) => {
 		//check circle's index in order to slide left ot right
         
 	     if (index < counter) {
-			imagesWrapper.style.transition = ".6s";
+			imagesWrapper.style.transition = '.6s';
 			counter --;
 			imagesWrapper.style.transform = `translateX(${-width * index}px)`;
-			activeCircle(getCircleIndex(e.target));
+			activeCircle(index);
+            showText(index);
 		} else if(index > counter) {
-			imagesWrapper.style.transition = ".6s";
+			imagesWrapper.style.transition = '.6s';
 			counter ++;
 			imagesWrapper.style.transform = `translateX(${-width * index}px)`;
-			activeCircle(getCircleIndex(e.target));
+			activeCircle(index);
+            showText(index);
 		}
 	}
 	isEnabled = false;
 };
 
 buttons.forEach((button) => {
-	button.addEventListener("click", slide);
+	button.addEventListener('click', slide);
     
 });
 
-imagesWrapper.addEventListener("transitionend", () => {
+imagesWrapper.addEventListener('transitionend', () => {
     isEnabled = true;
     if (counter > images.length - 1) {
 		counter  = 0;
@@ -47,14 +49,28 @@ imagesWrapper.addEventListener("transitionend", () => {
 
 function activeCircle(n) {
 	for (let circle of circles) {
-		circle.classList.remove("active-circle");
+		circle.classList.remove('active-circle');
 	}
 	if (n > buttons.length - 1) {
 		n = 0;
 	} else if (n < 0) {
 		n = buttons.length - 1;
 	}
-	circles[n].classList.add("active-circle");
+	circles[n].classList.add('active-circle');
+}
+
+function showText(n){
+    for(let text of texts){
+        text.classList.remove('show');
+        text.classList.add('hide');
+    }
+    if (n > texts.length - 1) {
+		n = 0;
+	} else if (n < 0) {
+		n = texts.length - 1;
+	}
+    texts[n].classList.remove('hide');
+	texts[n].classList.add('show');
 }
 
 //condition to distinguish if event target was list element or circle span element

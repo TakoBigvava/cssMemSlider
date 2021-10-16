@@ -119,10 +119,41 @@ img {
     text-transform: capitalize;
     font-weight: 700;
     grid-column: 1 / 1;
-    grid-row: 1 / 1;
-    
+    grid-row: 1 / 1;      
 }
 
+.show {
+    /* opacity: 1;
+    transition: all, 1s; */
+    animation-name: from-top;
+    animation-duration: 1s;
+}
+.hide {
+    animation-name: to-bottom;
+    animation-duration: 1s;
+    opacity: 0;
+}
+@keyframes from-top{
+    from { 
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 100%;
+        transform: translateY(0);
+    }
+}
+@keyframes to-bottom {
+    from { 
+        transform: translateY(0);
+        opacity: 100%;
+    }
+    to {
+             transform: translateY(20px);
+        opacity: 0;
+    }
+}
+    
 .rsschool {
     display: inline-block;
     width: 100px;
