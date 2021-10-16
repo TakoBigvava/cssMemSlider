@@ -1,5 +1,5 @@
 :root {
-    --shadow: 0px 2px 5px 0px rgba(0,0,0,0.75), 0px -1px 5px 0px rgba(0,0,0,0.75); ;
+    --shadow: 0px 2px 5px 0px rgba(0,0,0,0.75), 0px -2px 5px 0px rgba(0,0,0,0.75) ;
     
 }
 *,
@@ -30,39 +30,98 @@ a {
 	
 }
 img {
-    max-width: 100%;
-    display: block;
+    width: 100%;
+  
+  }
+  header,
+  main,
+  footer {
+      max-width: 2000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
   }
 
   h1{
       font-size: 2rem;
       text-transform: uppercase;
       color: rgb(0, 0, 0);
-      padding: 4rem;
+      padding: 3rem ;
   }
   ul{
       display: flex;
       flex-wrap: nowrap;
-      gap: 15px;
+      gap: 10px;
   }
   li{
     cursor: pointer;
   }
   .circle{
       display: inline-block;
-      width: 15px;
-      height: 15px;
+      width: 12px;
+      height: 12px;
       background-color: rgb(168, 168, 168);
       border-radius: 50%;
-      margin: 8px;
+      margin: 4px;
       transition: hover, 0.5s;
   }
-  li:hover .circle{
-      background-color: rgb(0, 0, 0);
-  }
-  li:active .circle{
+  li:hover .circle, .active-circle{
     background-color: rgb(248, 245, 59);
     border: 1px solid black;
+      
+  }
+  li:active .circle{
+    background-color: rgb(0, 0, 0);
+}
+
+
+.image-wrapper {
+    width: max-content;
+    display: flex;
+    flex-wrap: nowrap;
+    column-gap: 25px;
+}
+.image{
+    width: 40rem;
+    height: 26rem;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 5%;
+    gap: 25px;
+
+}
+.slider-images {
+    width: 40rem;
+    overflow: hidden;
+    -webkit-box-shadow: var(--shadow);
+    -moz-box-shadow: var(--shadow);
+    box-shadow: var(--shadow);
+}
+.slide-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+.sayings{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.text{
+    text-transform: capitalize;
+    font-weight: 700;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    
 }
 
 .rsschool {
@@ -71,28 +130,58 @@ img {
     margin: 0 20px;
 }
 .author {
+    display: inline-block;
     background-color: rgb(248, 245, 59);
-    padding: 5px 20px;
-    margin: 0 5px;
+    padding: 5px 10px;
+    margin: 0 3px;
 }
 footer {
-display: flex;
-align-items: center;
 border-top: 2px solid black;
 padding: 4rem;
 }
-.image{
-    width: 40rem;
-    height: auto;
-    -webkit-box-shadow: var(--shadow);
-    -moz-box-shadow: var(--shadow);
-    box-shadow: var(--shadow);
+
+
+@media only screen and (max-height: 760px) {
+    html{
+        font-size: 10px;
+      }
+      h1{
+        color: rgb(2, 56, 6);
+    }
+      p {
+          font-size: 1.6rem;
+      }
+     
+      .slide-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
 }
 
-.slider {
-    overflow: hidden;
-}
-.image-wrapper {
-    display: flex;
-    flex-wrap: nowrap;
+
+@media only screen and (max-width: 680px) {
+    h1{
+        color: rgb(105, 0, 0);
+    }
+
+    .slide-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .slider-images {
+        width: 25rem;
+        -webkit-box-shadow: var(--shadow);
+        -moz-box-shadow: var(--shadow);
+        box-shadow: var(--shadow);
+    }
+    .image{
+        width: 25rem;
+        height: 16rem;
+    }
 }
