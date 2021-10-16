@@ -51,7 +51,7 @@ img {
   ul{
       display: flex;
       flex-wrap: nowrap;
-      gap: 10px;
+      gap: 14px;
   }
   li{
     cursor: pointer;
