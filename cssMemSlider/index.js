@@ -9,20 +9,21 @@ let isEnabled = true;
 
 const slide = (e) => {
     const index = getCircleIndex(e.target)
-    if(index ==counter){
+    const activeIndex = getActiveCircleIndex();
+    if(index == activeIndex){
         isEnabled = true;
         return
     }
 	if (isEnabled) {
 		//check circle's index in order to slide left ot right
         
-	     if (index < counter) {
+	     if (index < activeIndex) {
 			imagesWrapper.style.transition = '.6s';
 			counter --;
 			imagesWrapper.style.transform = `translateX(${-width * index}px)`;
 			activeCircle(index);
             showText(index);
-		} else if(index > counter) {
+		} else if(index > activeIndex) {
 			imagesWrapper.style.transition = '.6s';
 			counter ++;
 			imagesWrapper.style.transform = `translateX(${-width * index}px)`;
@@ -96,3 +97,13 @@ else {
         return -1;
     }
 };
+
+//get active button in order to go left or right
+const getActiveCircleIndex = function () {
+       for (let i = 0; i < circles.length; i++) {
+           if (circles[i].classList.contains('active-circle')) {
+               return i;
+           }
+       }
+       return -1;
+   }
