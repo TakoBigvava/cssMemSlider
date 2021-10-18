@@ -15,31 +15,49 @@
     </header>
     <main>
         <div class="slider">
+            
+                <input type="radio" name="circle" id="image1">
+                <input type="radio" name="circle" id="image2">
+                <input type="radio" name="circle" id="image3">
+                <input type="radio" name="circle" id="image4">
+          
             <!-- hiding extra images -->
             <div class="slider-images">
                 <!-- creating image banner -->
                 <div class="image-wrapper">
-                    <div class="image"><img src="./images/01.jpg" alt="monkey"></div>
-                    <div class="image"><img src="./images/02.jpg" alt="yoda"></div>
-                    <div class="image"><img src="./images/03.jpg" alt="cat"></div>
-                    <div class="image"><img src="./images/04.jpg" alt="friends"></div>
+                    <div class="image image1"><img src="./images/01.jpg" alt="monkey"></div>
+                    <div class="image image2"><img src="./images/02.jpg" alt="yoda"></div>
+                    <div class="image image3"><img src="./images/03.jpg" alt="cat"></div>
+                    <div class="image image4"><img src="./images/04.jpg" alt="friends"></div>
                 </div>
             </div>
             <!-- controls and text -->
             <div class="slide-wrapper">
                 <div class="sayings">
-                    <p class="text show">All generalizations are false.</p>
-                    <p class="text hide">He who wakes up early, yawns all day long.</p>
-                    <p class="text hide">When nothing is going right, go left.</p>
-                    <p class="text hide">If you have crazy friends you have everything you’ll ever need.</p>
+                    <p class="text">All generalizations are false.</p>
+                    <p class="text">He who wakes up early, yawns all day long.</p>
+                    <p class="text">When nothing is going right, go left.</p>
+                    <p class="text">If you have crazy friends you have everything you’ll ever need.</p>
                 </div>
-                <ul class="slider-control">
-                    <li class="button"><span class="circle active-circle"></span></li>
-                    <li class="button"><span class="circle"></span></li>
-                    <li class="button"><span class="circle"></span></li>
-                    <li class="button"><span class="circle"></span></li>
-                </ul>
+                <div class="slider-control">
+                    <label for="image1">
+                        <span class="circle circle1"></span>
+                    </label>
+                        <label for="image2">
+                        <span class="circle circle2"></span>
+                    </label>
+                    <label for="image3">
+                        <span class="circle circle3"></span>
+                    </label>
+                    <label for="image4">
+                        <span class="circle circle4"></span>
+                    </label>
+    
+                </div>
+                
             </div>
+
+
         </div>
     </main>
     <footer>
@@ -50,7 +68,6 @@
                 <img src="https://rs.school/images/rs_school_js.svg" alt="rs-school" /></span>
         </a>
     </footer>
-    <script src="index.js"></script>
 </body>
 
 </html>
