@@ -237,6 +237,24 @@ footer {
 		width: 25rem;
 		height: 16rem;
 	}
+
+
+	#image1:checked ~ .slider-images > .image-wrapper{
+		transform: translateX(0);
+		transition: all, 0.5s;
+	}
+	#image2:checked ~ .slider-images > .image-wrapper{
+		transform: translateX(-26rem);
+		transition: all, 0.5s;
+	}
+	#image3:checked ~ .slider-images > .image-wrapper{
+		transform: translateX(-52rem);
+		transition: all, 0.5s;
+	}
+	#image4:checked ~ .slider-images > .image-wrapper{
+		transform: translateX(-78rem);
+		transition: all, 0.5s;
+	}	
 	.sayings {
 		justify-items: center;
 		margin: 0 20px;
