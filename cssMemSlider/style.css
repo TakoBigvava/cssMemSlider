@@ -54,6 +54,9 @@ ul {
 li {
 	cursor: pointer;
 }
+.slider input {
+	display: none;
+}
 .circle {
 	display: inline-block;
 	width: 12px;
@@ -63,20 +66,83 @@ li {
 	margin: 4px;
 	transition: hover, 0.5s;
 }
-li:hover .circle,
-.active-circle {
+.text {
+	text-transform: capitalize;
+	font-weight: 700;
+	grid-column: 1 / 1;
+	grid-row: 1 / 1;
+	transform: translateY(-2rem);
+    opacity: 0;
+}
+ .circle:hover {
+
 	background-color: rgb(248, 245, 59);
 	border: 1px solid black;
 }
-li:active .circle {
-	background-color: rgb(0, 0, 0);
+.circle:active{
+	background-color: black;
+}
+#image1:checked ~ .slide-wrapper .circle1{
+	background-color: black;
+}
+#image2:checked ~ .slide-wrapper .circle2{
+	background-color: black;
+}
+#image3:checked ~ .slide-wrapper .circle3{
+	background-color: black;
+}
+#image4:checked ~ .slide-wrapper .circle4{
+	background-color: black;
+}
+
+#image1:checked ~ .slide-wrapper > .sayings > .text:nth-child(1),
+#image2:checked ~ .slide-wrapper > .sayings > .text:nth-child(2),
+#image3:checked ~ .slide-wrapper > .sayings > .text:nth-child(3),
+#image4:checked ~ .slide-wrapper > .sayings > .text:nth-child(4) {
+transform: translateY(0);
+opacity: 1;
+transition: all 0.4s;
+}
+#image1:checked ~ .slider-images > .image-wrapper{
+    transform: translateX(0);
+	transition: all, 0.5s;
+}
+#image2:checked ~ .slider-images > .image-wrapper{
+    transform: translateX(-41rem);
+	transition: all, 0.5s;
+}
+#image3:checked ~ .slider-images > .image-wrapper{
+    transform: translateX(-82rem);
+	transition: all, 0.5s;
+}
+#image4:checked ~ .slider-images > .image-wrapper{
+    transform: translateX(-123rem);
+	transition: all, 0.5s;
+}
+
+.show {
+	/* opacity: 1;
+    transition: all, 1s; */
+	animation-name: from-top;
+	animation-duration: 1s;
+}
+.hide {
+	animation-name: to-bottom;
+	animation-duration: 1s;
+	opacity: 0;
+}
+
+
+.active-circle {
+	background-color: rgb(248, 245, 59);
+	border: 1px solid black;
 }
 
 .image-wrapper {
 	width: max-content;
 	display: flex;
 	flex-wrap: nowrap;
-	column-gap: 25px;
+	column-gap: 1rem;
 }
 .image {
 	width: 40rem;
@@ -111,49 +177,10 @@ li:active .circle {
 	grid-template-rows: 1fr;
 }
 
-.text {
-	text-transform: capitalize;
-	font-weight: 700;
-	grid-column: 1 / 1;
-	grid-row: 1 / 1;
-}
-
-.show {
-	/* opacity: 1;
-    transition: all, 1s; */
-	animation-name: from-top;
-	animation-duration: 1s;
-}
-.hide {
-	animation-name: to-bottom;
-	animation-duration: 1s;
-	opacity: 0;
-}
-@keyframes from-top {
-	from {
-		opacity: 0;
-		transform: translateY(-20px);
-	}
-	to {
-		opacity: 100%;
-		transform: translateY(0);
-	}
-}
-@keyframes to-bottom {
-	from {
-		transform: translateY(0);
-		opacity: 100%;
-	}
-	to {
-		transform: translateY(20px);
-		opacity: 0;
-	}
-}
-
 .rsschool {
 	display: inline-block;
-	width: 100px;
-	margin: 0 20px;
+	width: 4rem;
+	margin: 0 1.2rem;
 }
 .author {
 	display: inline-block;
@@ -210,6 +237,24 @@ footer {
 		width: 25rem;
 		height: 16rem;
 	}
+
+
+	#image1:checked ~ .slider-images > .image-wrapper{
+		transform: translateX(0);
+		transition: all, 0.5s;
+	}
+	#image2:checked ~ .slider-images > .image-wrapper{
+		transform: translateX(-26rem);
+		transition: all, 0.5s;
+	}
+	#image3:checked ~ .slider-images > .image-wrapper{
+		transform: translateX(-52rem);
+		transition: all, 0.5s;
+	}
+	#image4:checked ~ .slider-images > .image-wrapper{
+		transform: translateX(-78rem);
+		transition: all, 0.5s;
+	}	
 	.sayings {
 		justify-items: center;
 		margin: 0 20px;
